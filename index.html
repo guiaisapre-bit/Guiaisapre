@@ -467,6 +467,10 @@ footer{border-top:1px solid var(--border);padding:56px 0 28px;font-size:13px;col
       <div class="form-step" data-step="2">
         <div class="step-title" id="greetingTitle">¡Qué bueno que estés aquí!</div>
         <div class="step-desc">Para poder ofrecerte la mejor guía necesitamos hacerte un par de preguntas.</div>
+        <div class="field-group" style="margin-bottom:22px">
+          <label class="field-label">¿Qué edad tienes?</label>
+          <input type="number" class="field-input" id="fieldEdad" placeholder="Ej: 34" min="18" max="99">
+        </div>
         <div class="field-label" style="margin-bottom:10px">¿En qué isapre estás ahora?</div>
         <div class="option-grid" id="opt-isapre">
           <button class="opt" data-value="Banmédica">Banmédica <span class="check"></span></button>
@@ -907,7 +911,7 @@ function makeParticles(el, n){
 }
 makeParticles(document.getElementById('particles'), 26);
 
-const state = { nombre:null, isapre:null, preocupa:null, renta:null, preexistencia:null, preexistenciaDetalle:'', cargas:null, edadesCargas:'', clinicas:'', telefono:'', email:'', viaContacto:null };
+const state = { nombre:null, edad:null, isapre:null, preocupa:null, renta:null, preexistencia:null, preexistenciaDetalle:'', cargas:null, edadesCargas:'', clinicas:'', telefono:'', email:'', viaContacto:null };
 let currentStep = 1;
 
 function setupOptionGroup(groupId, stateKey){
@@ -952,7 +956,10 @@ function checkStepValid(){
   state.nombre = nombreVal;
   document.getElementById('next1').disabled = !(nombreVal.length>1);
 
-  document.getElementById('next2').disabled = !state.isapre;
+  const edadVal = document.getElementById('fieldEdad').value.trim();
+  state.edad = edadVal;
+  const edadNum = Number(edadVal);
+  document.getElementById('next2').disabled = !(edadVal && edadNum>=18 && edadNum<=99 && state.isapre);
   document.getElementById('next3').disabled = !state.preocupa;
 
   const edadesOk = state.cargas !== 'Sí' || document.getElementById('fieldEdadesCargas').value.trim().length>0;
@@ -963,6 +970,7 @@ function checkStepValid(){
 }
 
 document.getElementById('fieldNombre').addEventListener('input', checkStepValid);
+document.getElementById('fieldEdad').addEventListener('input', checkStepValid);
 document.getElementById('fieldEdadesCargas').addEventListener('input', checkStepValid);
 document.getElementById('fieldClinicas').addEventListener('input', checkStepValid);
 
@@ -993,6 +1001,7 @@ function goStep(n){
 }
 
 function submitForm(){
+  state.edad = document.getElementById('fieldEdad').value.trim();
   state.email = document.getElementById('fieldEmail').value.trim();
   state.preexistenciaDetalle = document.getElementById('fieldPreexistenciaDetalle').value.trim();
   state.edadesCargas = document.getElementById('fieldEdadesCargas').value.trim();
