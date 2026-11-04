@@ -21,7 +21,8 @@
 .advisor{isolation:isolate}.advisor,.advisor *{box-sizing:border-box}.advisor button{font-family:inherit}
 .advisor-launch .advisor-avatar{width:112px;height:148px}
 .advisor-launch .advisor-avatar img,.advisor-panel .advisor-avatar img{transform:none;object-fit:contain}
-.advisor-launch>span:last-child{right:105px}.advisor-panel{bottom:160px;max-height:calc(100dvh - 185px)}
+.advisor-launch>span:last-child{right:105px}.advisor-panel{padding:0;bottom:160px;max-height:calc(100dvh - 185px)}
+.wa-float{left:24px;right:auto}
 .advisor-content{max-height:min(52dvh,460px);overscroll-behavior:contain}.advisor-content button{min-height:44px}
 #formulario{scroll-margin-top:100px}
 @media(max-width:560px){.advisor-launch .advisor-avatar{width:86px;height:114px}.advisor-launch>span:last-child{right:80px}.advisor-panel{bottom:125px;max-height:calc(100dvh - 150px)}.advisor-content{max-height:calc(100dvh - 255px)}}
