@@ -26,3 +26,14 @@
 .advisor-content{max-height:min(52dvh,460px);overscroll-behavior:contain}.advisor-content button{min-height:44px}
 #formulario{scroll-margin-top:100px}
 @media(max-width:560px){.advisor-launch .advisor-avatar{width:86px;height:114px}.advisor-launch>span:last-child{right:80px}.advisor-panel{bottom:125px;max-height:calc(100dvh - 150px)}.advisor-content{max-height:calc(100dvh - 255px)}}
+/* Portal azul de EmilIA */
+.advisor-launch .advisor-avatar{position:relative;isolation:isolate}
+.advisor-launch .advisor-avatar::before{content:'';position:absolute;z-index:-1;inset:22% -8% -1%;border:3px solid #73d8ff;border-radius:50%;transform:rotate(-15deg);background:radial-gradient(ellipse,rgba(24,143,255,.26),rgba(24,143,255,.02) 68%);box-shadow:0 0 9px #54cbff,0 0 24px #198fff99,inset 0 0 18px #198fff88;pointer-events:none}
+.advisor-launch .advisor-avatar::after{content:'';position:absolute;left:6%;right:0;bottom:1%;height:13%;border-bottom:3px solid #a4edff;border-radius:50%;filter:drop-shadow(0 0 5px #24b8ff);pointer-events:none}
+.advisor-content [hidden]{display:none!important}
+.emilia-quote label{display:block;font-size:14px;line-height:1.5;font-weight:600;margin:12px 0 8px}
+.emilia-quote input:not([type=checkbox]),.emilia-quote select{width:100%;min-height:46px;padding:11px;border:1px solid #76bdcf;border-radius:10px;background:white;color:#173443;font:inherit;margin-bottom:14px}
+.emilia-quote input:focus-visible,.emilia-quote select:focus-visible{outline:3px solid #087f9e;outline-offset:2px}
+.emilia-quote dl{font-size:13px;line-height:1.5;margin:14px 0}.emilia-quote dt{font-weight:700;margin-top:9px}.emilia-quote dd{margin:2px 0 0;overflow-wrap:anywhere}
+.emilia-quote .emilia-consent{font-size:12px;font-weight:400}.emilia-consent input{width:18px;height:18px;vertical-align:middle;margin-right:7px}
+.emilia-quote .emilia-error{color:#94312c;font-size:13px}.emilia-quote button:disabled{opacity:.6;cursor:wait}
