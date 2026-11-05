@@ -38,7 +38,7 @@
   const label=document.createElement('label');label.className='emilia-consent';const consent=document.createElement('input');consent.type='checkbox';label.append(consent,document.createTextNode('Autorizo enviar estos datos al equipo de Guía Isapre para que nuestra asesora de salud me contacte por llamada o WhatsApp sobre mi cotización.'));form.append(label);
   const status=document.createElement('p');status.className='emilia-error';status.setAttribute('role','status');form.append(status);
   const send=button('Enviar mi solicitud a nuestra asesora de salud',async()=>{if(sending||sent)return;if(!consent.checked){status.textContent='Confirma tu autorización antes de enviar.';return;}sending=true;send.disabled=true;back.disabled=true;send.textContent='Enviando…';status.textContent='';
-   try{const response=await fetch('https://hook.us2.make.com/yfj4va4gh782bifrql8uizmaq4uj7kdx',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,origen:'EmilIA · web Guía Isapre'})});if(!response.ok)throw new Error('not_received');sent=true;render();}
+   try{const response=await fetch('https://hook.us2.make.com/e74xcmlxehtx4dy6y9ph63b6nru2qllb',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,origen:'EmilIA · web Guía Isapre'})});if(!response.ok)throw new Error('not_received');sent=true;render();}
    catch{status.textContent='No pudimos confirmar el envío. Puedes volver a intentarlo.';send.disabled=false;back.disabled=false;send.textContent='Reintentar envío';}finally{sending=false;}
   });const back=button('← Corregir mis datos',()=>move(-1));form.append(send,back);content.scrollTop=0;
  }
