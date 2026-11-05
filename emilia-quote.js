@@ -12,7 +12,7 @@
   {key:'edadesCargas',label:'¿Qué edades tienen tus cargas?',type:'text',when:d=>d.cargas==='Sí'},
   {key:'clinicas',label:'¿Qué clínicas prefieres?',type:'text'},
   {key:'telefono',label:'¿Cuál es tu teléfono de contacto?',type:'tel',autocomplete:'tel'},
-  {key:'viaContacto',label:'¿Cómo prefieres que nuestra asesora de salud te contacte?',options:['Llamada','WhatsApp']}
+  {key:'email',label:'¿Cuál es tu correo electrónico?',type:'email',autocomplete:'email'}, {key:'viaContacto' ,label:'¿Cómo prefieres que nuestra asesora de salud te contacte?',options:['Llamada','WhatsApp']}
  ];
  const data={email:'',preexistencia:'No consultada',preexistenciaDetalle:'',edadesCargas:''};let index=0,sending=false,sent=false;
  const form=document.createElement('form');form.className='emilia-quote';form.hidden=true;content.append(form);
